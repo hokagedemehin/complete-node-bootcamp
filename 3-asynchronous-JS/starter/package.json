@@ -1,0 +1,15 @@
+{
+  "name": "3-asynchronous-js",
+  "version": "1.0.0",
+  "description": "A short tutorial on Async and promises",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Demehin Mary",
+  "license": "MIT",
+  "dependencies": {
+    "superagent": "^6.1.0"
+  }
+}
