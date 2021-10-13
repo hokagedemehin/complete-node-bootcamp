@@ -8,6 +8,14 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
+process.on("unhandledRejection", (err) => {
+  console.log(err.name, err.message);
+  console.log("UNHANDLED REJECTION! 💥💥 existing the program...");
+  server.close(() => {
+    process.exit(1);
+  });
+});
+
 dotenv.config({ path: path.join(__dirname, "config.env") });
 
 // console.log(dotenv.config({ path: path.join(__dirname, "config.env") }));
@@ -42,6 +50,6 @@ mongoose.connect(DB).then((con) => {
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`App is running on port ${PORT}`);
 });
